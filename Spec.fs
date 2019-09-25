@@ -25,8 +25,8 @@ module Spec =
         let customer = c |> int
         let cost = p |> decimal
         
-        let month = (m |> int) % 12
-        let month2 = (month + 4 ) % 12
+        let month = (m |> int) % 12 + 1
+        let month2 = (month + 4 ) % 12 + 1
 
         billMonth service customer month cost
         billMonth service customer month2 cost
