@@ -3,6 +3,17 @@ name: Grading
 on: [push]
 
 jobs:
+  status: 
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Update status badge
+      run:  sed -i 's|<NEVER BUILT>|![](https://github.com/'$GITHUB_REPOSITORY'/workflows/Grading/badge.svg)|g' README.md
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
   build:
 
     runs-on: windows-latest
@@ -18,9 +29,4 @@ jobs:
       shell: powershell
     - name: Test
       run: dotnet test
-    - name: Update status badge
-      run: ((Get-Content -path README.md -Raw) -replace '<REPOSITORY>',${GITHUB_REPOSITORY}) | Set-Content -Path README.md
-      shell: powershell
-    - uses: mikeal/publish-to-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
