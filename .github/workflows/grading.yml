@@ -1,0 +1,20 @@
+name: Grading
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1.802
+    - name: Download spec
+      run: Invoke-WebRequest -Uri https://raw.githubusercontent.com/kmaooad/coding-19W04/master/Spec.fs -OutFile Spec.fs
+      shell: powershell
+    - name: Test
+      run: dotnet test
