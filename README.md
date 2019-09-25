@@ -1,7 +1,7 @@
 # Coding assignment. Week 4 (2019).
 
 [![Join the chat at https://gitter.im/kmaooad/coding-19W04](https://badges.gitter.im/kmaooad/coding-19W04.svg)](https://gitter.im/kmaooad/coding-19W04?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<NEVER BUILT>
+![](https://github.com/kmaooad/coding-19W04/workflows/Grading/badge.svg)
 
 ### Task
 
