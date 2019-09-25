@@ -18,3 +18,9 @@ jobs:
       shell: powershell
     - name: Test
       run: dotnet test
+    - name: Update status badge
+      run: ((Get-Content -path README.md -Raw) -replace '<REPOSITORY>',${GITHUB_REPOSITORY}) | Set-Content -Path README.md
+      shell: powershell
+    - uses: mikeal/publish-to-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
